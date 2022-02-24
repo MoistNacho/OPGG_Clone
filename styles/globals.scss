@@ -1,0 +1,52 @@
+@import "base";
+
+* {
+	box-sizing: border-box;
+	word-break: keep-all;
+}
+
+html {
+	font-size: 62.5%;
+	// background-color: $main-background-color;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: Helvetica, "Malgun Gothic", "Apple SD Gothic Neo", AppleGothic,
+		Dotum, Arial, Tahoma;
+}
+
+#__next {
+	width: 100%;
+	height: 100%;
+}
+
+input,
+select {
+	background: rgb(255, 255, 255);
+	vertical-align: middle;
+}
+
+input,
+button {
+	margin: 0px;
+	padding: 0px;
+	outline: none;
+	border: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+ul,
+li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}

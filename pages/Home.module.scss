@@ -1,0 +1,42 @@
+@import "styles/base";
+
+.container {
+	height: 100%;
+	padding: 0 2rem;
+	background-color: $main-background-color;
+
+	.main {
+		padding: 4rem 0 8rem;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.logoContainer {
+			margin: 3.2rem 0 2.4rem;
+			img {
+				max-height: 200px;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.footer {
+		display: flex;
+		flex: 1;
+		padding: 2rem 0;
+		border-top: 1px solid #eaeaea;
+		justify-content: center;
+		align-items: center;
+
+		p {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-grow: 1;
+			color: #eaeaea;
+			font-size: 1.2rem;
+		}
+	}
+}
