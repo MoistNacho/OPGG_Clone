@@ -5,14 +5,7 @@ import opggSubmitSvg from "../../design/svg/button/icon-gg-white.svg";
 import axios from "axios";
 import { ChampionProps } from "../../pages";
 import { Champion, Position } from "../../pages/_app";
-
-type TierData = {
-	border_image_url: string;
-	division: number;
-	lp: number;
-	tier: string;
-	tier_image_url: string;
-};
+import { TierData } from "../../types/opgg_types";
 
 type ProfileData = {
 	acct_id: string;

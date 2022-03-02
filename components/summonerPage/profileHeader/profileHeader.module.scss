@@ -1,0 +1,142 @@
+@import "styles/base";
+
+.profileContainer {
+	margin-top: 20px;
+
+	.seasonList {
+		margin-left: 5px;
+		padding-left: 30px;
+		padding-bottom: 15px;
+
+		li {
+			display: inline-block;
+			padding: 3px 4px 2px 4px;
+			margin-right: 7px;
+			background: #e0e3e3;
+			color: #657070;
+			font-size: 11px;
+			border: 1px solid #ced3d3;
+			border-radius: 3px;
+			text-transform: capitalize;
+		}
+	}
+
+	.mainWrap {
+		display: flex;
+		.banner {
+			padding-left: 30px;
+			vertical-align: top;
+
+			.iconWrap {
+				position: relative;
+
+				img {
+					display: block;
+					width: 100px;
+					height: 100px;
+				}
+
+				.rankBorder {
+					position: absolute;
+					left: -10px;
+					top: -10px;
+					width: 120px;
+					height: 120px;
+					background-position: center bottom;
+					background-repeat: no-repeat;
+				}
+
+				.level {
+					position: absolute;
+					top: 100%;
+					left: 50%;
+					margin-top: -14px;
+					margin-left: -22px;
+					width: 44px;
+					height: 24px;
+					padding-top: 3px;
+					box-sizing: border-box;
+					background: url(https://s-lol-web.op.gg/static/images/site/summoner/bg-levelbox.png);
+					background-size: 100%;
+					line-height: 17px;
+					font-family: Helvetica, AppleSDGothic, "Apple SD Gothic Neo",
+						AppleGothic, Arial, Tahoma;
+					font-size: 14px;
+					text-align: center;
+					color: #eabd56;
+				}
+			}
+		}
+
+		.profile {
+			position: relative;
+			margin: 0 25px 0 29px;
+			vertical-align: top;
+			line-height: 1.1;
+
+			.info {
+				.name {
+					color: #242929;
+					font-size: 20px;
+					font-weight: bold;
+					margin-right: 4px;
+					vertical-align: middle;
+				}
+
+				button {
+					cursor: pointer;
+					margin-left: 4px;
+					vertical-align: 1px;
+					text-decoration: none;
+					color: #777;
+					display: inline-block;
+					border: 1px solid #c6cbcb;
+					border-radius: 3px;
+					padding: 3px 5px;
+					font-size: 10px;
+
+					img {
+						vertical-align: middle;
+						zoom: 0.7;
+						margin-right: 4px;
+					}
+				}
+
+				.ladder {
+					display: block;
+					color: #555e5e;
+					font-size: 1.1rem;
+					text-decoration: none;
+					margin: 5px 0;
+
+					.ranking {
+						color: #059ede;
+						font-weight: bold;
+					}
+				}
+			}
+
+			.buttons {
+				margin-top: 20px;
+
+				button {
+					cursor: pointer;
+					padding: 11px 14px 10px;
+					border-radius: 2px;
+					font-size: 14px;
+					position: relative;
+					border: 1px solid #1a78ae;
+					background: #1f8ecd;
+					color: #f2f2f2;
+					margin: 0 6px 6px 0;
+				}
+			}
+
+			.lastUpdate {
+				height: 12px;
+				color: #99a2a2;
+				font-size: 11px;
+			}
+		}
+	}
+}
