@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import { Profile, Season } from "../../../pages/summoners/[player]";
+import React from "react";
+import { Profile } from "../../../pages/summoners/[player]";
+import { Season } from "../../../types/opgg_types";
 import styles from "./profileHeader.module.scss";
 
 const commaNumber = require("comma-number");
@@ -10,10 +11,6 @@ interface ProfileProps {
 }
 
 const ProfileHeader: React.VFC<ProfileProps> = ({ profile, seasons }) => {
-	useEffect(() => {
-		console.log(profile.league_stats[0].tier_info.border_image_url);
-	}, [profile]);
-
 	return (
 		<div className={styles.profileContainer}>
 			{profile.previous_seasons.length > 0 && (

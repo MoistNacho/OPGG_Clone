@@ -4,8 +4,7 @@ import styles from "./searchBar.module.scss";
 import opggSubmitSvg from "../../design/svg/button/icon-gg-white.svg";
 import axios from "axios";
 import { ChampionProps } from "../../pages";
-import { Champion, Position } from "../../pages/_app";
-import { TierData } from "../../types/opgg_types";
+import { Champion, Position, TierData } from "../../types/opgg_types";
 
 type ProfileData = {
 	acct_id: string;
@@ -99,11 +98,10 @@ const SearchBar: React.VFC<ChampionProps> = ({ champions }) => {
 	};
 
 	return (
-		<div className={styles.searchWrapper}>
+		<article className={styles.searchWrapper}>
 			<form
 				onSubmit={(e) => {
 					e.preventDefault();
-					console.log(2);
 				}}
 			>
 				<input
@@ -205,7 +203,7 @@ const SearchBar: React.VFC<ChampionProps> = ({ champions }) => {
 					</div>
 				)}
 			</form>
-		</div>
+		</article>
 	);
 };
 

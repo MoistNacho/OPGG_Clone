@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./Home.module.scss";
 import logoPic from "../design/img/logo/opgg_logo.jpg";
 import SearchBar from "../components/searchBar/searchBar";
-import { Champion } from "./_app";
+import { Champion } from "../types/opgg_types";
 
 export interface ChampionProps {
 	champions: Champion[];

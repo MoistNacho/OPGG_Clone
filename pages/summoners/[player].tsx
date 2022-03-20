@@ -4,45 +4,17 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import ProfileHeader from "../../components/summonerPage/profileHeader/profileHeader";
-import { TierData } from "../../types/opgg_types";
+import RankHistory from "../../components/summonerPage/rankHistory/rankHistory";
+import {
+	ChampionById,
+	LeagueInfo,
+	Previous_Season,
+	RankStatus,
+	Season,
+} from "../../types/opgg_types";
 import styles from "./summoners.module.scss";
 
-export type Season = {
-	display_value: number;
-	id: number;
-	is_preseason: boolean;
-	value: number;
-};
-
-type LeagueInfo = {
-	is_fresh_blood: boolean;
-	is_hot_streak: boolean;
-	is_inactive: boolean;
-	is_veteran: boolean;
-	league: {
-		id: number;
-		name: string;
-		translate: string;
-		uuid: string;
-	};
-	lose: number;
-	queue_info: {
-		game_type: string;
-		id: number;
-		queue_translate: "string";
-	};
-	updated_at: string;
-	win: number;
-	tier_info: TierData;
-};
-
-type Previous_Season = {
-	created_at: string;
-	season_id: number;
-	tier_info: TierData;
-};
-
-export interface Profile {
+export type Profile = {
 	name: string;
 	level: number;
 	profile_image_url: string;
@@ -54,14 +26,15 @@ export interface Profile {
 		total: number;
 	};
 	updated_at: string;
-}
+};
 
 const SummonerPage: NextPage = () => {
 	const router = useRouter();
 	const { query } = router;
-	const [summonerData, setSummonerData] = useState(null);
+	const [rankStatus, setRankStatus] = useState<RankStatus | null>(null);
 	const [profile, setProfile] = useState<Profile | null>(null);
 	const [seasons, setSeasons] = useState<Season[]>([]);
+	const [champions, setChampions] = useState<ChampionById[]>([]);
 
 	useEffect(() => {
 		if (Object.keys(query).length !== 0) {
@@ -78,17 +51,33 @@ const SummonerPage: NextPage = () => {
 				.then((response) => {
 					const data = response.data.data;
 					console.log(data);
-					setSeasons(data.seasons);
-					setProfile({
-						name: data.name,
-						level: data.level,
-						profile_image_url: data.profile_image_url,
-						previous_seasons: data.previous_seasons,
-						updated_at: data.updated_at,
-						summoner_id: data.summoner_id,
-						ladder_rank: data.ladder_rank,
-						league_stats: data.league_stats,
-					});
+					if (data.name) {
+						let championsArr = Object.keys(data.championsById).map((id) => {
+							return {
+								id: data.championsById[id].id,
+								name: data.championsById[id].name,
+								img_url: data.championsById[id].image_url,
+							};
+						});
+
+						setSeasons(data.seasons);
+						setChampions(championsArr);
+						setProfile({
+							name: data.name,
+							level: data.level,
+							profile_image_url: data.profile_image_url,
+							previous_seasons: data.previous_seasons,
+							updated_at: data.updated_at,
+							summoner_id: data.summoner_id,
+							ladder_rank: data.ladder_rank,
+							league_stats: data.league_stats,
+						});
+						setRankStatus({
+							soloRank: data.league_stats[0],
+							freeRank: data.league_stats[1],
+							mostChampions: data.most_champions,
+						});
+					}
 				})
 				.catch(() => {
 					window.open("https://cors-anywhere.herokuapp.com/corsdemo");
@@ -108,6 +97,11 @@ const SummonerPage: NextPage = () => {
 
 			<main className={styles.main}>
 				{profile && <ProfileHeader profile={profile} seasons={seasons} />}
+				<div className={styles.historyWraper}>
+					{rankStatus && (
+						<RankHistory status={rankStatus} champions={champions} />
+					)}
+				</div>
 			</main>
 
 			<footer className={styles.footer}>

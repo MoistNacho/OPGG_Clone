@@ -2,17 +2,7 @@ import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-export type Position = "MID" | "TOP" | "JUNGLE" | "SUPPORT" | "ADC";
-
-export type Champion = {
-	id: string;
-	name: string;
-	title: string;
-	info: string;
-	imgUrl: string;
-	position?: Position[];
-};
+import { Champion } from "../types/opgg_types";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const [champions, setChampions] = useState<Champion[] | null>(null);
