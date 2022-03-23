@@ -1,34 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# OPGG 클론코딩
 
-## Getting Started
+> 리그오브 레전드 전적검색 사이트 OPGG의 클론코딩 프로젝트 입니다.
 
-First, run the development server:
+## Tools
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- Google Chrome (동작환경)
+- Next.js
+- TypeScript
+- React
+- SCSS
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Detailed description
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- 구글 개발툴을 이용해서 OPGG 사이트에서 필요한 API를 활용하여 데이터를 사용하였습니다.
+- 소환사 정보 상세페이지는 CORS 문제로 인하여 우회를 이용하여 API를 불러오도록 하였습니다. (소환사 검색시 나오는 새 탭에서 우회 활성화 후 페이지 새로고침)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Preview
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. 메인 페이지
+   ![opgg1](https://user-images.githubusercontent.com/59498305/159621323-3cf41f86-7334-47e3-94c1-0dcbbc971b02.PNG)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. 사용자 검색
+   ![opgg2](https://user-images.githubusercontent.com/59498305/159621327-d3b2551d-fd99-4588-9ede-2459e56c7b61.PNG)
